@@ -1,1 +1,1 @@
-# online-bayes-risk-estimation
+# Online Bayesian Risk Estimation
