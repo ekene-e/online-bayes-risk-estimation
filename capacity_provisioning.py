@@ -22,19 +22,11 @@ class BayesianPosterior:
         self.log_posterior = np.copy(self.log_prior)
 
     def get_posterior_probs(self):
-        """
-        Returns the current posterior as probabilities in linear space.
-        """
         max_lp = np.max(self.log_posterior)
         shifted = np.exp(self.log_posterior - max_lp)
         return shifted / np.sum(shifted)
 
     def update_posterior_independent(self, data_batch, likelihood_func):
-        """
-        Bayesian update for decision-independent case.
-        posterior(theta) = prior(theta) * Product_{d in data_batch} likelihood(d; theta).
-        data_batch : array/list of observations
-        """
         for i in range(self.num_params):
             lp = self.log_posterior[i]
             for d in data_batch:
@@ -48,9 +40,6 @@ class BayesianPosterior:
 
 
 def project_to_box(x, lower_bounds, upper_bounds):
-    """
-    Elementwise clip for projection onto [lower_bounds, upper_bounds].
-    """
     return np.minimum(np.maximum(x, lower_bounds), upper_bounds)
 
 def bayesian_sgd_independent(
@@ -66,22 +55,6 @@ def bayesian_sgd_independent(
     lower_bounds=None,
     upper_bounds=None
 ):
-    """
-    Runs Bayesian-SGD for the decision-independent setting.
-
-    x_init : initial decision, can be float or 1D array.
-    posterior : BayesianPosterior object
-    data_generator_func(batch_size) -> batch of data
-    gradient_estimator_func_independent(x, posterior_probs) -> unbiased gradient
-    likelihood_func(data_point, theta)
-    step_sizes : list or array (>= T*K in length or we reuse the last)
-    T : no. of outer time stages
-    batch_size : how many new data points arrive each stage
-    K : no. of sub-iterations (SGD steps) per stage
-    lower_bounds, upper_bounds : box constraints
-
-    Returns a list of decisions [x_0, x_1, ..., x_T].
-    """
     x = np.atleast_1d(x_init).astype(float)
     d = x.shape[0]
     if lower_bounds is None:
