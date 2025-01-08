@@ -192,13 +192,6 @@ def run_newsvendor_indep_demo(return_trajectory=False):
     return trajectory
 
 def make_plots():
-    """
-    Runs five scenarios. For each scenario, we produce:
-      - Plot #1: x(t) vs. t
-      - Plot #2: cost(t) vs. t
-
-    That yields 2 plots per scenario x 5 scenarios = 10 separate windows.
-    """
     traj1 = run_univariate_decision_independent_demo(return_trajectory=True)
     xs1 = np.array(traj1) 
     timesteps1 = np.arange(len(xs1))
@@ -347,6 +340,6 @@ if __name__ == "__main__":
     run_multivariate_decision_dependent_demo()
     run_newsvendor_indep_demo()
 
-    make_separate_plots()
+    make_plots()
     
     run_capacity_provisioning_demo_for_plots()
