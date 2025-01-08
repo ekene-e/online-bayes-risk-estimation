@@ -85,7 +85,6 @@ def likelihood_poisson(data_point, lam_param):
 
 def gradient_estimator_capacity(x, posterior_probs, param_space,
                                 c=1.0, p=5.0, rng=None):
-
     if rng is None:
         rng = np.random.default_rng()
     idx_list = np.arange(len(posterior_probs))
