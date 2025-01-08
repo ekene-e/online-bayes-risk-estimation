@@ -26,7 +26,6 @@ def gradient_estimator_indep_univar(x, posterior_probs,
     return np.array([grad_acc / float(sample_size)])
 
 
-
 def data_generator_indep_multi(batch_size, true_theta=4, rng=None):
     if rng is None:
         rng = np.random.default_rng()
