@@ -158,15 +158,6 @@ def run_capacity_provisioning(
     K=1,
     rng=None
 ):
-    """
-    Runs Bayesian-SGD for capacity provisioning and returns the entire x(t) trajectory.
-
-    param_space: If None, defaults to np.arange(1,31).
-    prior: if None, uniform over param_space.
-    T: number of time stages
-    c, p: cost and penalty
-    step_coefficient: for step size schedule a_t = step_coefficient/(t+5)
-    """
     if rng is None:
         rng = np.random.default_rng()
     if param_space is None:
