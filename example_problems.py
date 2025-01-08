@@ -1,10 +1,5 @@
-# example_problems.py
-
 import numpy as np
 
-##########################################
-# 1) Univariate Decision-Independent Example
-##########################################
 
 def data_generator_indep_univar(batch_size, true_theta=9, noise_std=4, rng=None):
     if rng is None:
