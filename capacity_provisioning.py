@@ -1,5 +1,3 @@
-# capacity_provisioning.py
-
 import numpy as np
 from math import factorial, exp
 
@@ -126,13 +124,7 @@ def likelihood_poisson(data_point, lam_param):
 
 def gradient_estimator_capacity(x, posterior_probs, param_space,
                                 c=1.0, p=5.0, rng=None):
-    """
-    Monte Carlo gradient wrt x for cost h(x, xi) = c*x + p * max(0, xi - x),
-    xi ~ Poisson(lambda). We do:
-      1) sample lam from the posterior
-      2) sample xi ~ Poisson(lam)
-      3) grad_x h(x, xi) = c if xi <= x else (c - p).
-    """
+
     if rng is None:
         rng = np.random.default_rng()
     idx_list = np.arange(len(posterior_probs))
