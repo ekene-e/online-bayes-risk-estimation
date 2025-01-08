@@ -7,7 +7,6 @@ import numpy as np
 ##########################################
 
 def data_generator_indep_univar(batch_size, true_theta=9, noise_std=4, rng=None):
-
     if rng is None:
         rng = np.random.default_rng()
     return rng.normal(loc=true_theta, scale=noise_std, size=batch_size)
