@@ -7,10 +7,7 @@ import numpy as np
 ##########################################
 
 def data_generator_indep_univar(batch_size, true_theta=9, noise_std=4, rng=None):
-    """
-    Data generator for the univariate test: xi ~ Normal(theta^c, noise_std^2).
-    Returns an array of shape (batch_size,).
-    """
+
     if rng is None:
         rng = np.random.default_rng()
     return rng.normal(loc=true_theta, scale=noise_std, size=batch_size)
