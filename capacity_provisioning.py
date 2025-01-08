@@ -3,9 +3,6 @@
 import numpy as np
 from math import factorial, exp
 
-###############################################################################
-# 1) BayesianPosterior for a Discrete Parameter Space
-###############################################################################
 class BayesianPosterior:
     """
     Maintains and updates a discrete Bayesian posterior distribution over a
@@ -52,9 +49,6 @@ class BayesianPosterior:
         self.log_posterior -= mx
 
 
-###############################################################################
-# 2) bayesian_sgd_independent (Decision-Independent Uncertainty)
-###############################################################################
 def project_to_box(x, lower_bounds, upper_bounds):
     """
     Elementwise clip for projection onto [lower_bounds, upper_bounds].
@@ -111,9 +105,6 @@ def bayesian_sgd_independent(
 
     return trajectory
 
-###############################################################################
-# 3) Poisson-based "Capacity Provisioning" Problem
-###############################################################################
 def data_generator_capacity(batch_size, true_lambda=8, rng=None):
     """
     Observes batch_size arrival counts from Poisson(true_lambda).
