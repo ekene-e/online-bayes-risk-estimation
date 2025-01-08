@@ -6,12 +6,7 @@ class BayesianPosterior:
     Maintains and updates a discrete Bayesian posterior distribution over a
     finite set of parameters param_space = [theta_1, theta_2, ...].
     """
-
     def __init__(self, param_space, prior=None):
-        """
-        param_space : 1D np.ndarray of discrete candidate parameters
-        prior       : None or 1D array matching param_space
-        """
         self.param_space = param_space
         self.num_params = len(param_space)
         if prior is None:
