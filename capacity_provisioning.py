@@ -104,18 +104,11 @@ def bayesian_sgd_independent(
     return trajectory
 
 def data_generator_capacity(batch_size, true_lambda=8, rng=None):
-    """
-    Observes batch_size arrival counts from Poisson(true_lambda).
-    """
     if rng is None:
         rng = np.random.default_rng()
     return rng.poisson(lam=true_lambda, size=batch_size)
 
 def likelihood_poisson(data_point, lam_param):
-    """
-    Poisson pmf = exp(-lam) * lam^k / k!.
-    We'll do a minimal check for lam_param <=0 => 1e-300.
-    """
     if lam_param <= 0:
         return 1e-300
     k = data_point
