@@ -139,10 +139,6 @@ def gradient_estimator_capacity(x, posterior_probs, param_space,
     return np.array([grad], dtype=float)
 
 def approximate_true_cost(x, true_lambda=8, c=1.0, p=5.0, mc_samples=2000, rng=None):
-    """
-    Approximate H(x) = E[c*x + p * max(0, xi - x)] under xi~Poisson(true_lambda).
-    We'll do a quick Monte Carlo approach for demonstration.
-    """
     if rng is None:
         rng = np.random.default_rng()
     x_val = x[0]
