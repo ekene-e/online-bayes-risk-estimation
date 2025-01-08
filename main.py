@@ -191,7 +191,7 @@ def run_newsvendor_indep_demo(return_trajectory=False):
         print(f"[Newsvendor Indep] Final solution: {trajectory[-1]}")
     return trajectory
 
-def make_separate_plots():
+def make_plots():
     """
     Runs five scenarios. For each scenario, we produce:
       - Plot #1: x(t) vs. t
